@@ -5,7 +5,7 @@ import main.RandomIDMaker;
 public class Item {
 	
 	private String itemName = "undefined";
-	private int ID;
+	private int id;
 	private Department department;
 	private int units;
 	private float price;
@@ -13,7 +13,7 @@ public class Item {
 	
 	public Item() {
 		RandomIDMaker randomIDMaker = new RandomIDMaker();
-		ID = randomIDMaker.generateIDNumber();
+		id = randomIDMaker.generateIDNumber();
 	}
 	
 	public Item(String itemName) {
@@ -22,8 +22,16 @@ public class Item {
 	}
 	
 	public Item(String itemName, Department department, int units, float price, Markdown markdown) {
-		this();
+		this(itemName);
+		this.department = department;
+		this.units = units;
+		this.price = price;
+		this.markdown = markdown;
+	}
+	
+	public Item(String itemName, Department department, int units, float price, Markdown markdown, int id) {
 		this.itemName = itemName;
+		this.id = id;
 		this.department = department;
 		this.units = units;
 		this.price = price;
@@ -44,11 +52,11 @@ public class Item {
 	}
 
 	public int getID() {
-		return ID;
+		return id;
 	}
 
-	public void setID(int iD) {
-		ID = iD;
+	public void setID(int id) {
+		id = id;
 	}
 
 	public Department getDepartment() {

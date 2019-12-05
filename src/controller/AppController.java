@@ -58,7 +58,8 @@ public class AppController implements Initializable{
 			currentView = viewType;
 			switch(viewType){
 				case Home:
-					// loader = new FXMLLoader(getClass().getResource("/main/main.fxml"));
+					System.out.println("We are in the HOme");
+					loader = new FXMLLoader(getClass().getResource("/views/login.fxml"));
 					loader.setController(this);
 					break;
 					
