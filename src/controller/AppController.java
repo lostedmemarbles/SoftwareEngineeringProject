@@ -23,7 +23,7 @@ public class AppController implements Initializable{
 	// instance variables
 	private Views currentView;
 	private static BorderPane rootPane;
-	private Store store;
+	private Store store = new Store("Food Library");
 
 
 	// Singleton Start
@@ -45,9 +45,6 @@ public class AppController implements Initializable{
 		this.rootPane = rootPane;
 	}
 
-	public void setData(Store store){
-		this.store = store;
-	}
 /**
  * changeView changes the view in the program
  * @param viewType The view to switch to. They are defined as constant ints
