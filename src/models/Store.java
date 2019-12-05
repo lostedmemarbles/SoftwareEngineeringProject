@@ -25,23 +25,7 @@ public class Store {
 	}
 	
 	public void removeItem(Item item) {
-		
-		String itemToRemoveName = item.getName().toUpperCase();
-		String itemCurrentIterationName;
-		Item foundItem = null;
-		
-		for (Item i : items) {
-			itemCurrentIterationName = i.getName().toUpperCase();
-			if (itemCurrentIterationName.compareTo(itemToRemoveName) == 0) {
-				foundItem = i;
-				break;
-			}
-		}
-		
-		if (foundItem != null) {
-			items.remove(foundItem);
-		}
-		
+		items.remove(item);
 	}
 	
 	public boolean itemInStore(String itemName) {
