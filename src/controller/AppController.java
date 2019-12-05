@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
+import main.AppMenuBar;
 import models.Store;
 import views.Views;
 
@@ -24,6 +25,7 @@ public class AppController implements Initializable{
 	private Views currentView;
 	private static BorderPane rootPane;
 	private Store store = new Store("Food Library");
+	private AppMenuBar appMenuBar = new AppMenuBar();
 
 
 	// Singleton Start
@@ -56,7 +58,7 @@ public class AppController implements Initializable{
 			currentView = viewType;
 			switch(viewType){
 				case Home:
-					loader = new FXMLLoader(getClass().getResource("/main/main.fxml"));
+					// loader = new FXMLLoader(getClass().getResource("/main/main.fxml"));
 					loader.setController(this);
 					break;
 					
@@ -87,6 +89,12 @@ public class AppController implements Initializable{
     // Accessors
 	public Store getStore() {
 		return store;
+	}
+	public AppMenuBar getAppMenuBar() {
+		return appMenuBar;
+	}
+	public void setAppMenuBar(AppMenuBar appMenuBar) {
+		this.appMenuBar = appMenuBar;
 	}
 
 

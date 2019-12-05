@@ -51,25 +51,22 @@ public class TableController  implements Initializable {
 	private TableColumn<Item, BigDecimal> donationsColumn;
 	
 	private MenuBar menuBar;
-	private Store store;
 	private ObservableList<Item> inventory = FXCollections.observableArrayList();
 	
 	
-	public TableController(Store store) {
-		this.store = store;
+	public TableController() {
+		
 	}
 
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// menuBar = AppController.getInstance().getAppMenuBar().getMenuBar();
-		// pane.setTop(menuBar);
+		menuBar = AppController.getInstance().getAppMenuBar().getMenuBar();
+		pane.setTop(menuBar);
 		
 		
-		/*
-		 * TODO: Redo all of this to fit new project
-		 * 
-		inventory.addAll(store.getInventory());
+		
+		inventory.addAll(AppController.getInstance().getStore().getItems());
 		idColumn.setCellValueFactory(new PropertyValueFactory<>("ID"));
 		descriptionColumn.setCellValueFactory(new PropertyValueFactory<>("description"));
 		departmentColumn.setCellValueFactory(new PropertyValueFactory<>("department"));
@@ -81,7 +78,7 @@ public class TableController  implements Initializable {
 		donationsColumn.setCellValueFactory(new PropertyValueFactory<>("donations"));
 		
 		itemTable.setItems(inventory);
-		*/
+		
 		
 	}
 
