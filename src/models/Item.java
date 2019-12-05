@@ -10,4 +10,9 @@ public class Item {
 	public Item(String itemName) {
 		this.itemName = itemName;
 	}
+	
+	@Override
+	public String toString() {
+		return itemName;
+	}
 }
