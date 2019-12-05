@@ -135,12 +135,6 @@ public class AppController implements Initializable{
 		changeView(currentView, store);
 	}
 
-	// JAVA FX Stuff
-    @FXML // ResourceBundle that was given to the FXMLLoader
-    private ResourceBundle resources;
-
-    @FXML // URL location of the FXML file that was given to the FXMLLoader
-    private URL location;
 
     public void initialize(URL location, ResourceBundle resources) {
 
