@@ -50,7 +50,7 @@ public class AppController implements Initializable{
  * @param viewType The view to switch to. They are defined as constant ints
  * @param store The store data file
  */
-	public void changeView(Views viewType, Store store){
+	public void changeView(Views viewType){
 		try{
 			FXMLLoader loader = null;
 			currentView = viewType;
@@ -74,8 +74,9 @@ public class AppController implements Initializable{
 		}
 	}
 
+
 	public void refresh() {
-		changeView(currentView, store);
+		changeView(currentView);
 	}
 
 
@@ -86,9 +87,6 @@ public class AppController implements Initializable{
     // Accessors
 	public Store getStore() {
 		return store;
-	}
-	public void setStore(Store store) {
-		this.store = store;
 	}
 
 
