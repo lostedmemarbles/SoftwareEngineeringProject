@@ -4,6 +4,7 @@ import java.util.*;
 public class Store {
 
 	ArrayList<Item> items = new ArrayList<Item>();
+	ArrayList<Integer> ids = new ArrayList<Integer>();
 	private String storeName;
 	public Store() {
 		
@@ -51,5 +52,9 @@ public class Store {
 	// Accessors
 	public String getName() {
 		return storeName;
+	}
+	
+	public ArrayList<Item> getItems() {
+		return items;
 	}
 }
