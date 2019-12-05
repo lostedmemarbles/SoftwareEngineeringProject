@@ -4,22 +4,13 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import deleteRecord_view.DeleteRecordController;
-import inventory_graph.InventoryGraphController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
-import menu_bar.AppMenuBar;
 import models.Store;
-import newRecord_view.AddRecordController;
-import purchase_graph.PurchaseGraphController;
-import sales_graph.SalesGraphController;
-import table_view.TableController;
-import totals_graph.TotalsGraphController;
-import updateRecord_view.UpdateRecordController;
 
 /**
  * @author Paul Lapsley
@@ -34,7 +25,7 @@ public class AppController implements Initializable{
 	private int currentView;
 	private static BorderPane rootPane;
 	private Store store;
-	private AppMenuBar appMenuBar = new AppMenuBar();
+	// private AppMenuBar appMenuBar = new AppMenuBar();
 
 
 	// Singleton Start
@@ -147,12 +138,13 @@ public class AppController implements Initializable{
 	public void setStore(Store store) {
 		this.store = store;
 	}
+	/*
 	public AppMenuBar getAppMenuBar() {
 		return appMenuBar;
 	}
 	public void setAppMenuBar(AppMenuBar appMenuBar) {
 		this.appMenuBar = appMenuBar;
-	}
+	}*/
 
 
 }
