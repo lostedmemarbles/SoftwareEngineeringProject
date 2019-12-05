@@ -41,10 +41,16 @@ public class AppMenuBar implements EventHandler<ActionEvent> {
 	private MenuItem exportData;
 	private MenuItem logout;
 	private MenuItem quit;
+	
+	private Menu viewMenu = new Menu("View");
+	private MenuItem manager;
+	private MenuItem employee;
+	private MenuItem driver;
 
 
 	public AppMenuBar() {
 		createFileMenu();
+		createViewMenu();
 	}
 /**
  * Creates the "File" menu and its menu items.
@@ -71,6 +77,22 @@ public class AppMenuBar implements EventHandler<ActionEvent> {
 		fileMenu.getItems().add(quit);
 
 		menuBar.getMenus().add(fileMenu);
+	}
+	
+	public void createViewMenu() {
+		manager = new MenuItem("Manager Screen");
+		manager.setOnAction(this);
+		viewMenu.getItems().add(manager);
+		
+		employee = new MenuItem("Employee Screen");
+		employee.setOnAction(this);
+		viewMenu.getItems().add(employee);
+		
+		driver = new MenuItem("Driver Screen");
+		driver.setOnAction(this);
+		viewMenu.getItems().add(driver);
+		
+		menuBar.getMenus().add(viewMenu);
 	}
 
 
@@ -131,5 +153,19 @@ public class AppMenuBar implements EventHandler<ActionEvent> {
 				e.printStackTrace();
 			}
 		}
+		
+		else if (event.getSource() == manager) {
+			// AppController.getInstance().changeView(AppController.TABLE_VIEW, AppController.getInstance().getStore());
+			System.out.println("Manager Test");
+		}
+		else if (event.getSource() == employee) {
+			// AppController.getInstance().changeView(AppController.TABLE_VIEW, AppController.getInstance().getStore());
+			System.out.println("Employee Test");
+		}
+		else if (event.getSource() == driver) {
+			// AppController.getInstance().changeView(AppController.TABLE_VIEW, AppController.getInstance().getStore());
+			System.out.println("Driver Test");
+		}
+		
 	}
 }

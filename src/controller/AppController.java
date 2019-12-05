@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import main.AppMenuBar;
+import main.Main;
 import models.Store;
 import views.Views;
 
@@ -59,8 +60,9 @@ public class AppController implements Initializable{
 			switch(viewType){
 				case Home:
 					System.out.println("We are in the HOme");
-					loader = new FXMLLoader(getClass().getResource("/views/login.fxml"));
-					loader.setController(this);
+					loader = new FXMLLoader(Main.class.getResource("/views/table_view.fxml"));
+					TableController tableController = new TableController();
+					loader.setController(tableController);
 					break;
 					
 				default:
