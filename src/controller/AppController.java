@@ -11,21 +11,19 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import models.Store;
+import views.Views;
+
 
 /**
  * @author Paul Lapsley
- * @author Michael Chapa
  * AppController is a singleton that controls view switching, holds the current store data, and
  * the app's menu bar
  */
 public class AppController implements Initializable{
 	// instance variables
-	public static final int MAIN_VIEW = 0, GRAPH_MAIN_VIEW = 1, DELETE_RECORD_VIEW = 2, UPDATE_RECORD_VIEW = 3,
-							GRAPH_PURCHASE = 4, GRAPH_SALES = 5 , GRAPH_TOTAL = 6, NEW_RECORD_VIEW = 7, TABLE_VIEW = 5000, GRAPH_VIEW=1000;
-	private int currentView;
+	private Views currentView;
 	private static BorderPane rootPane;
 	private Store store;
-	// private AppMenuBar appMenuBar = new AppMenuBar();
 
 
 	// Singleton Start
@@ -55,67 +53,24 @@ public class AppController implements Initializable{
  * @param viewType The view to switch to. They are defined as constant ints
  * @param store The store data file
  */
-	public void changeView(int viewType, Store store){
+	public void changeView(Views viewType, Store store){
 		try{
 			FXMLLoader loader = null;
 			currentView = viewType;
 			switch(viewType){
-				case MAIN_VIEW:
+				case Home:
 					loader = new FXMLLoader(getClass().getResource("/main/main.fxml"));
 					loader.setController(this);
 					break;
-					/*
-				case GRAPH_MAIN_VIEW:
-					loader = new FXMLLoader(Launcher.class.getResource("/inventory_graph/inventoryGraph.fxml"));
-					InventoryGraphController graphController = new InventoryGraphController();
-					graphController.setData(store);
-					loader.setController(graphController);
+					
+				default:
 					break;
-				case GRAPH_PURCHASE:
-					loader = new FXMLLoader(Launcher.class.getResource("/purchase_graph/purchaseGraph.fxml"));
-					PurchaseGraphController purchaseGraphController = new PurchaseGraphController();
-					purchaseGraphController.setData(store);
-					loader.setController(purchaseGraphController);
-					break;
-				case GRAPH_SALES:
-					loader = new FXMLLoader(Launcher.class.getResource("/sales_graph/salesGraph.fxml"));
-					SalesGraphController salesGraphController = new SalesGraphController();
-					salesGraphController.setData(store);
-					loader.setController(salesGraphController);
-					break;
-				case GRAPH_TOTAL:
-					loader = new FXMLLoader(Launcher.class.getResource("/totals_graph/totalsGraph.fxml"));
-					TotalsGraphController totalGraphController = new TotalsGraphController();
-					totalGraphController.setData(store);
-					loader.setController(totalGraphController);
-					break;
-				case NEW_RECORD_VIEW:
-					loader = new FXMLLoader(Launcher.class.getResource("/newRecord_view/newRecord.fxml"));
-					AddRecordController addRecordController = new AddRecordController();
-					loader.setController(addRecordController);
-					break;
-				case UPDATE_RECORD_VIEW:
-					loader = new FXMLLoader(Launcher.class.getResource("/updateRecord_view/updateRecord.fxml"));
-					UpdateRecordController updateRecordController = new UpdateRecordController();
-					loader.setController(updateRecordController);
-					break;
-				case DELETE_RECORD_VIEW:
-					loader = new FXMLLoader(Launcher.class.getResource("/deleteRecord_view/deleteRecord.fxml"));
-					DeleteRecordController deleteRecordController = new DeleteRecordController(store);
-					loader.setController(deleteRecordController);
-					break;
-				case TABLE_VIEW:
-					loader = new FXMLLoader(Launcher.class.getResource("/table_view/table_view.fxml"));
-					TableController tableController = new TableController(store);
-					loader.setController(tableController);
-					break;*/
-			}
-			// Set new view in the Stage
-			if(viewType != GRAPH_VIEW) {
-				Parent view = loader.load();
 
-				rootPane.setTop(view);
 			}
+			
+			
+			Parent view = loader.load();
+			rootPane.setTop(view);
 		}
 		catch(IOException e){
 			e.printStackTrace();
@@ -138,13 +93,8 @@ public class AppController implements Initializable{
 	public void setStore(Store store) {
 		this.store = store;
 	}
-	/*
-	public AppMenuBar getAppMenuBar() {
-		return appMenuBar;
-	}
-	public void setAppMenuBar(AppMenuBar appMenuBar) {
-		this.appMenuBar = appMenuBar;
-	}*/
 
 
 }
+
+
