@@ -18,8 +18,8 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			root = (AnchorPane)FXMLLoader.load(getClass().getResource("/view1/Anchor.fxml"));
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view1/view1.fxml"));
+			root = (AnchorPane)FXMLLoader.load(getClass().getResource("/views/Anchor.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/login.fxml"));
 			LoginController controller = new LoginController();
 			loader.setController(controller);
 			GridPane newGridPane = (GridPane) loader.load();
